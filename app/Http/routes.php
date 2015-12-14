@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('artworker/{id}',['uses' => 'ArtworkerController@view']);
