@@ -41,7 +41,7 @@
                             <form action="{{ url('/dashboard/artworker/'.$artworker->id.'/art') }}"
                                   class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                             @else
-                                    <form action="{{ url('/art/'.$art->id) }}"
+                                    <form action="{{ url('/dashboard/art/'.$art->id) }}"
                                           class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                             @endif
                                 {!! csrf_field() !!}

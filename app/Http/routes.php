@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('artworker/{id}',['uses' => 'ArtworkerController@view']);
+Route::get('artworker/{id}',['uses' => 'WebController@view']);
 
 
 Route::group(['prefix' => 'dashboard'], function () {

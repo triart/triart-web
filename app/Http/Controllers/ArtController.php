@@ -59,10 +59,11 @@ class ArtController extends Controller
 
         $art = $this->art_repository->findById($id);
         $art = $this->art_repository->update($art, $data);
+        $artworker_id = $art->artworker->id;
 
         if (!$art) {
             \Session::flash('alert-error', 'Error while updating art '.$data['title']);
-            return redirect()->to('/artworker')->withInput();
+            return redirect()->action('ArtController@index', [$artworker_id]);
         }
 
         //Detach all
@@ -78,7 +79,6 @@ class ArtController extends Controller
 
         \Session::flash('alert-success', 'Art '.$data['title']. ' has been updated');
 
-        $artworker_id = $art->artworker->id;
         return redirect()->action('ArtController@index', [$artworker_id]);
     }
 

@@ -47,12 +47,12 @@
 
                         <div class="row">
                             @foreach($artworker->arts as $art)
+
                             <div class="col-md-55">
                                 <div class="thumbnail">
                                     <div class="image view view-first">
                                         <img style="width: 100%; display: block;" src="{{$art->image_url}}" alt="image" />
-                                        <div class="mask">
-                                            <p>{{ $art->description }}</p>
+                                        <div class="mask no-caption">
                                             <div class="tools tools-bottom">
                                                 <a href="{{$art->image_url}}"><i class="fa fa-link"></i></a>
                                                 <a href="{{url('/dashboard/art/'.$art->id)}}"><i class="fa fa-pencil"></i></a>
@@ -61,12 +61,16 @@
                                         </div>
                                     </div>
                                     <div class="caption">
-                                        <p>{{ $art->title }}</p>
+                                        <p><strong>{{ $art->title }}</strong>
+                                        </p>
+                                        <p>{{ $art->description }}</p>
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                                @endforeach
                         </div>
+
+
 
                         <!-- Small modal -->
 

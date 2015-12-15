@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-class ArtworkerController extends Controller
+class WebController extends Controller
 {
     public function view($id)
     {
