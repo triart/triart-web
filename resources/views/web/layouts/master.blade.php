@@ -18,6 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS
     ================================================== -->
+
+    @yield('revolution_slider_css')
+
     <!-- web font  -->
     <link href='http://fonts.googleapis.com/css?family=Helvetica:400,700' rel='stylesheet' type='text/css'>	<!-- Neko framework  -->
     <link type="text/css" rel="stylesheet" href="{{url('custom-icons/css/custom-icons.css')}}">
@@ -26,6 +29,7 @@
     <link type="text/css" rel="stylesheet" id="color" href="{{url('neko-framework/css/color/neko-framework-color.css')}}">
     <link type="text/css" rel="stylesheet" id="color" href="{{url('css/custom.css')}}">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Favicons
     ================================================== -->
     <link rel="shortcut icon" href="{{url('images/favicon.ico')}}">
@@ -59,6 +63,7 @@
 <!-- neko framework script -->
 <script type="text/javascript" src="{{url('neko-framework/js/neko-framework.js')}}"></script>
 
+@yield('revolution_slider_js')
 
 <!-- neko custom script -->
 <script src="{{url('js/custom.js')}}"></script>

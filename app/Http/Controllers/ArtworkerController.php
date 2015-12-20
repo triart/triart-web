@@ -5,6 +5,7 @@ use App\Modules\Artworker\ArtworkerRepository;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class ArtworkerController extends Controller
 {
@@ -102,16 +103,27 @@ class ArtworkerController extends Controller
             return response()->setStatusCode(500);
         }
 
+        $avatar_data = $request->input('avatar_data');
+        $avatar_data = json_decode($avatar_data);
+
+        /**
+         * Find and delete the oldimage if exist
+         */
         $artworker = $this->artworker_repository->findById($id);
         $this->deleteAvatar($artworker);
 
         $artworker_image_path = '/images/artworker/';
-        /**
-         * Move to storage
-         */
         $destination_path = public_path().$artworker_image_path;
         $file_name = $this->provideAvatarFilename($request, $artworker);
-        $request->file('avatar_file')->move($destination_path, $file_name);
+
+        /**
+         * Create image, rotate, crop, resize then save it to size 168 px X 168 px
+         */
+        Image::make($request->file('avatar_file'))
+            ->rotate($avatar_data->rotate)
+            ->crop($avatar_data->width, $avatar_data->height, intval($avatar_data->x), intval($avatar_data->y))
+            ->resize(168,168)
+            ->save($destination_path.$file_name);
 
         /**
          * Update profile picture location to db

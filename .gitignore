@@ -2,3 +2,5 @@
 .env
 /.idea
 /public/images/artworker
+/public/images/art
+/public/video

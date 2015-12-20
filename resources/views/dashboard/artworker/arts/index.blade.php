@@ -51,7 +51,7 @@
                             <div class="col-md-55">
                                 <div class="thumbnail">
                                     <div class="image view view-first">
-                                        <img style="width: 100%; display: block;" src="{{$art->image_url}}" alt="image" />
+                                        <img style="width: 100%; display: block;" src="{{$art->thumbnail_url}}" alt="image" />
                                         <div class="mask no-caption">
                                             <div class="tools tools-bottom">
                                                 <a href="{{$art->image_url}}"><i class="fa fa-link"></i></a>

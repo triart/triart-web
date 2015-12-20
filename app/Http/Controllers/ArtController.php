@@ -7,6 +7,7 @@ use App\Modules\Category\CategoryRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class ArtController extends Controller
 {
@@ -130,6 +131,56 @@ class ArtController extends Controller
     }
 
     public function uploadArt(Request $request, $id)
+    {
+        if (!$request->hasFile('avatar_file')) {
+            return response()->setStatusCode(500);
+        }
+
+        $art = $this->art_repository->findById($id);
+        $this->deleteArtFile($art);
+
+        $art_data = $request->input('avatar_data');
+        $art_data = json_decode($art_data);
+
+        $art_image_path = '/images/art/';
+        $art_thumbnail_path = '/images/art/thumbnail/';
+
+        /**
+         * Set the filename
+         */
+        $destination_path = public_path().$art_image_path;
+        $thumbnail_dest_path = public_path().$art_thumbnail_path;
+        $file_name = $this->provideArtFilename($request, $art);
+
+        /**
+         * Save original resolution
+         */
+        Image::make($request->file('avatar_file'))
+            ->save($destination_path.$file_name);
+
+        /**
+         * Create thumbnail image, rotate, crop, resize then save it to size 346 px X 346 px
+         */
+        Image::make($request->file('avatar_file'))
+            ->rotate($art_data->rotate)
+            ->crop($art_data->width, $art_data->height, intval($art_data->x), intval($art_data->y))
+            ->resize(346,346)
+            ->save($thumbnail_dest_path.$file_name);
+
+        /**
+         * Update profile picture location to db
+         * Provide full url location
+         */
+        $url = url().$art_image_path.$file_name;
+        $thumbnail_url = url().$art_thumbnail_path.$file_name;
+        $data['image_url'] = $url;
+        $data['thumbnail_url'] = $thumbnail_url;
+        $this->art_repository->update($art, $data);
+
+        return response()->json(['result' => $thumbnail_url, 'state' => 200])->setStatusCode(200);
+    }
+
+    public function _uploadArt(Request $request, $id)
     {
         if (!$request->hasFile('avatar_file')) {
             return response()->setStatusCode(500);
