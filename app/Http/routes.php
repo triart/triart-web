@@ -12,9 +12,11 @@
 */
 
 Route::get('/', ['uses' => 'WebController@index']);
-
 Route::get('artworker/{id}',['uses' => 'WebController@view']);
-
+Route::get('art/{id}',['uses' => 'WebController@artDetail']);
+Route::get('/contact', ['uses' => 'WebController@contact']);
+Route::post('/contact',['uses' => 'WebController@postContact']);
+Route::get('/{username}',['uses' => 'WebController@viewByUsername'])->where('name', '[A-Za-z]+');
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['middleware' => 'auth'], function () {
@@ -43,6 +45,16 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/category/{id}', ['uses' => 'CategoryController@view']);
         Route::put('/category/{id}', ['uses' => 'CategoryController@update']);
         Route::get('/category/{id}/delete', ['uses' => 'CategoryController@delete']);
+
+        Route::get('/carousel', ['uses' => 'ContentController@carousel']);
+        Route::post('/carousel/video', ['uses' => 'ContentController@postCarouselVideo']);
+        Route::get('/carousel/{carousel_id}', ['uses' => 'ContentController@viewCarousel']);
+        Route::post('/carousel/{carousel_id}', ['uses' => 'ContentController@updateCarousel']);
+        Route::get('/carousel/{carousel_id}/enable', ['uses' => 'ContentController@enableCarousel']);
+
+
+        Route::get('/content', ['uses' => 'ContentController@content']);
+        Route::post('/content', ['uses' => 'ContentController@saveContent']);
     });
 
     // Authentication routes...

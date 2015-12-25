@@ -41,8 +41,7 @@
 <script src="{{ asset('js/icheck/icheck.min.js')}}"></script>
 
 <script src="{{ asset('js/dashboard_custom.js')}}"></script>
-<!-- dropzone -->
-<script src="{{ asset('js/dropzone/dropzone.js')}}"></script>
+
 <!-- PNotify -->
 <script type="text/javascript" src="{{ asset('js/notify/pnotify.core.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/notify/pnotify.buttons.js')}}"></script>

@@ -58,4 +58,9 @@ class ArtworkerRepository implements CrudContract
     {
         return $model->delete();
     }
+
+    public function findByUsername($username)
+    {
+        return Artworker::where('username', '=', $username)->first();
+    }
 }

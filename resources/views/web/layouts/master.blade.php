@@ -22,7 +22,7 @@
     @yield('revolution_slider_css')
 
     <!-- web font  -->
-    <link href='http://fonts.googleapis.com/css?family=Helvetica:400,700' rel='stylesheet' type='text/css'>	<!-- Neko framework  -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>	<!-- Neko framework  -->
     <link type="text/css" rel="stylesheet" href="{{url('custom-icons/css/custom-icons.css')}}">
     <link type="text/css" rel="stylesheet" href="{{url('neko-framework/external-plugins/external-plugins.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{url('neko-framework/css/layout/neko-framework-layout.css')}}">
@@ -39,10 +39,10 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{url('images/apple-touch-icon-144x144.png')}}">
 
     <script src="{{url('neko-framework/external-plugins/modernizr/modernizr.custom.js')}}"></script>
-
+    @yield('google-captcha')
 </head>
 
-<body class="activate-appear-animation header-7 parallaxed-footer">
+<body class="activate-appear-animation header-7">
 <!-- global-wrapper -->
 <div id="global-wrapper">
 

@@ -2,10 +2,18 @@
 	padding: 15px 0;
 }
 
+footer#main-footer #footer-rights {
+	color: #fff;
+}
+
 @media (max-width: 500px) {
 	.box-testimonial cite span{
 		overflow: auto;
 	}
+}
+
+.youtube-text {
+	position: absolute; bottom: 0; right: 0;
 }
 
 /*

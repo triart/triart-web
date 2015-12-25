@@ -8,7 +8,7 @@
                     <a href="home-1.html"><img src="{{ url('images/logo/triart-logo.png')}}" alt="Triartspace" class="pb responsive" /></a>
                     <address>
                         <p>
-                            Jakarta, Indonesia | <a href="mailto:contact@triartspace.com">contact@triartspace.com</a>
+                            Made with love from Jakarta, Indonesia
                         </p>
                     </address>
                     <ul class="social-icons dark-color circle">

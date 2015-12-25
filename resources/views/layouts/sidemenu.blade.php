@@ -17,6 +17,26 @@
 
             <div class="menu_section">
                 <ul class="nav side-menu">
+
+                    <li><a><i class="fa fa-newspaper-o"></i>Website<span class="fa fa-chevron-down"></span></a>
+
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/carousel') }}">Carousel/Video</a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/content') }}">Content</a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/featured') }}">Featured</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
                     <li><a><i class="fa fa-group"></i> Manage <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li><a href="{{ url('/dashboard/artworker') }}">Artworker</a>
@@ -25,6 +45,7 @@
                             </li>
                         </ul>
                     </li>
+
 
                 </ul>
             </div>

@@ -39,165 +39,39 @@
                     <!-- / hamburger button -->
 
                     <!-- Logo -->
-                    <a class="navbar-brand" href="index.html"><img src="{{ url('images/logo/triart-logo.png')}}" alt="EDENA website template"/></a>
+                    <a class="navbar-brand" href="{{url('/')}}"><img src="{{ url('images/logo/triart-logo.png')}}" alt="Triartspace"/></a>
                     <!-- /Logo -->
                 </div>
                 <div class="collapse navbar-collapse">
                     <!-- Main navigation -->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="neko-mega-menu-trigger">
-                            <a href="index.html" class="has-sub-menu">Home</a>
-                            <div class="neko-mega-menu sub-menu">
-
-                                <div class="col-md-3">
-                                    <div class="mega-inner">
-
-                                        <ul>
-                                            <li><a href="index.html">Home default</a></li>
-                                            <li><a href="home-2.html">Revolution slider</a></li>
-                                            <li><a href="home-4.html">Ken Burns slider</a></li>
-                                            <li><a href="home-9.html">Fullscreen slider</a></li>
-                                            <li><a href="home-17.html">Vertical slider</a></li>
-                                            <li><a href="home-15.html">Swiper slider</a></li>
-                                            <li><a href="home-16.html">Swiper tabs</a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mega-inner">
-
-                                        <ul>
-                                            <li><a href="home-1.html">Boxed Carousel</a></li>
-                                            <li><a href="home-5.html">Owl Carousel</a></li>
-                                            <li><a href="home-13.html">Fullwidth Carousel</a></li>
-                                            <li><a href="home-18.html">Video HTML5</a></li>
-                                            <li><a href="home-12.html">Video YouTube</a></li>
-                                            <li><a href="home-6.html">Masonry</a></li>
-                                            <li><a href="home-14.html">Mosaic</a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mega-inner">
-
-                                        <ul>
-                                            <li><a href="home-11.html">With Sidebar</a></li>
-                                            <li><a href="home-3.html">No slider</a></li>
-                                            <li><a href="home-7.html">No slider 2</a></li>
-                                            <li><a href="home-19.html">No slider 3</a></li>
-                                            <li><a href="home-8.html">Blog</a></li>
-                                            <li><a href="home-10.html">Boxed</a></li>
-
-                                        </ul>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="mega-inner">
-                                        <p>
-                                            Edena comes with One page version!
-                                        </p>
-                                        <ul>
-                                            <li><a href="index-one-page.html">One page default</a></li>
-                                            <li><a href="index-one-page-fullscreen-image.html">One page V2</a></li>
-                                            <li><a href="index-one-page-static-header.html">One page V3</a></li>
-                                            <li><a href="index-one-page-video.html">One page V4</a></li>
-                                            <li><a href="index-one-page-carousel.html">One page V5</a></li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="{{url('/')}}" class="has-sub-menu">Home</a>
                         </li>
 
                         <li>
-                            <a href="features-bootstrap.html" class="has-sub-menu">Features</a>
+                            <a href="features-bootstrap.html" class="has-sub-menu">Artworkers</a>
                             <ul class="sub-menu">
-                                <li><a href="features-bootstrap.html">Bootstrap 3</a></li>
-                                <li><a href="features-neko-css.html">Typography</a></li>
-                                <li><a href="features-neko-components.html">CSS Components</a></li>
-                                <li><a href="features-neko-javascript.html">Js & plugins</a></li>
-                                <li><a href="features-header-transparent.html">Header transparent</a></li>
+                                <li><a href="features-bootstrap.html">Category 1</a></li>
+
                                 <li>
-                                    <a href="features-header-large.html">Header large</a>
+                                    <a href="features-header-large.html">Category 2</a>
                                     <ul class="sub-menu">
-                                        <li><a href="features-header-large.html">Default</a></li>
-                                        <li><a href="features-header-large-preheader.html">With pre-header</a></li>
-                                        <li><a href="features-header-large-dark.html">Dark</a></li>
-                                        <li><a href="features-header-large-dark-preheader.html">Dark with pre-header</a></li>
-                                        <li><a href="features-header-large-dark-transparent.html">Dark semi transparent</a></li>
-                                        <li><a href="features-header-large-light-transparent.html">Light semi transparent</a></li>
+                                        <li><a href="features-header-large.html">Artworker 1</a></li>
+                                        <li><a href="features-header-large-preheader.html">Artworker 2</a></li>
                                     </ul>
 
                                 </li>
-                                <li>
-                                    <a href="features-header-classic.html">Header classic</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="features-header-classic.html">Default</a></li>
-                                        <li><a href="features-header-classic-preheader.html">With pre-header</a></li>
-                                        <li><a href="features-header-classic-dark.html">Dark</a></li>
-                                        <li><a href="features-header-classic-dark-preheader.html">Dark with pre-header</a></li>
-                                        <li><a href="features-header-classic-dark-transparent.html">Dark semi transparent</a></li>
-                                        <li><a href="features-header-classic-light-transparent.html">Light semi transparent</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="features-header-border.html">Header with borders</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="features-header-border.html">Default</a></li>
-                                        <li><a href="features-header-border-preheader.html">With pre-header</a></li>
-                                        <li><a href="features-header-border-dark.html">Dark</a></li>
-                                        <li><a href="features-header-border-dark-preheader.html">Dark with pre-header</a></li>
-                                        <li><a href="features-header-border-dark-transparent.html">Dark semi transparent</a></li>
-                                        <li><a href="features-header-border-light-transparent.html">Light semi transparent</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="features-header-icons.html">Header with icons</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="features-header-icons.html">Default</a></li>
-                                        <li><a href="features-header-icons-preheader.html">With pre-header</a></li>
-                                        <li><a href="features-header-icons-dark.html">Dark</a></li>
-                                        <li><a href="features-header-icons-dark-preheader.html">Dark with pre-header</a></li>
-                                        <li><a href="features-header-icons-dark-transparent.html">Dark semi transparent</a></li>
-                                        <li><a href="features-header-icons-light-transparent.html">Light semi transparent</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="features-header-rounded-corners.html">Header rounded buttons</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="features-header-rounded-corners.html">Default</a></li>
-                                        <li><a href="features-header-rounded-corners-preheader.html">With pre-header</a></li>
-                                        <li><a href="features-header-rounded-corners-dark.html">Dark</a></li>
-                                        <li><a href="features-header-rounded-corners-dark-preheader.html">Dark with pre-header</a></li>
-                                        <li><a href="features-header-rounded-corners-dark-transparent.html">Dark semi transparent</a></li>
-                                        <li><a href="features-header-rounded-corners-light-transparent.html">Light semi transparent</a></li>
-                                    </ul>
-                                </li>
-                                <li class="last">
-                                    <a href="index-one-page.html" class="has-sub-menu">Smenu 3</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">SSmenu 1</a></li>
-                                        <li><a href="home1.html">SSmenu 2</a></li>
-                                        <li class="last">
-                                            <a href="index-one-page.html" class="has-sub-menu">SSmenu 3</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="index.html">SSSmenu 1</a></li>
-                                                <li><a href="home1.html">SSSmenu 2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="#clients" class="has-sub-menu">Clients</a>
+                        </li>
+
                         <li class="neko-mega-menu-trigger">
-                            <a href="#" class="has-sub-menu">Templates</a>
+                            <a href="#" class="has-sub-menu">Meet Our Team</a>
                             <div class="neko-mega-menu sub-menu image-background bottom-right no-cover image-30">
                                 <div class="col-md-3">
                                     <div class="mega-inner">
@@ -279,103 +153,9 @@
 
                             </div>
                         </li>
-                        <li>
-                            <a href="portfolio-masonry.html" class="has-sub-menu active">Portfolio</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="portfolio-horizontal.html">Horizontal scrolling</a>
-                                </li>
 
-                                <li>
-                                    <a href="portfolio-vertical.html">Vertical scrolling</a>
-                                </li>
 
-                                <li>
-                                    <a href="portfolio-masonry.html">Masonry</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-masonry.html">No gutter</a></li>
-                                        <li><a href="portfolio-masonry-caption.html">Captions & gutters</a></li>
-                                        <li><a href="portfolio-masonry-caption-boxed.html">Captions & gutters boxed</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-2columns.html" class="has-sub-menu">Classic</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-2columns.html">2 columns</a></li>
-                                        <li><a href="portfolio-3columns.html">3 columns</a></li>
-                                        <li><a href="portfolio-4columns.html">4 columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-2columns-mosaic.html" class="has-sub-menu">Mosaic</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-2columns-mosaic.html">2 columns</a></li>
-                                        <li><a href="portfolio-3columns-mosaic.html">3 columns</a></li>
-                                        <li><a href="portfolio-4columns-mosaic.html">4 columns</a></li>
-                                        <li><a href="portfolio-5columns-mosaic.html">5 columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-2columns-sidebar.html" class="has-sub-menu">Classic with sidebar</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-2columns-sidebar.html">2 columns</a></li>
-                                        <li><a href="portfolio-3columns-sidebar.html">3 columns</a></li>
-                                        <li><a href="portfolio-4columns-sidebar.html">4 columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-masonry-filter.html" class="has-sub-menu">Filterable</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-masonry-filter.html">Masonry</a></li>
-                                        <li><a href="portfolio-masonry-caption-filter.html">Captions & gutters</a></li>
-                                        <li><a href="portfolio-masonry-caption-filter-boxed.html">Captions & gutters boxed</a></li>
-
-                                        <li><a href="portfolio-2columns-filter.html">2 columns</a></li>
-                                        <li><a href="portfolio-3columns-filter.html">3 columns</a></li>
-                                        <li><a href="portfolio-4columns-filter.html">4 columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-2columns-filter-sidebar.html" class="has-sub-menu">Filterable with sidebar</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-2columns-filter-sidebar.html">2 columns</a></li>
-                                        <li><a href="portfolio-3columns-filter-sidebar.html">3 columns</a></li>
-                                        <li><a href="portfolio-4columns-filter-sidebar.html">4 columns</a></li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <a href="portfolio-project-image.html" class="has-sub-menu">Single project</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-project-image.html">Image</a></li>
-                                        <li><a href="portfolio-project-carousel.html">Carousel</a></li>
-                                        <li><a href="portfolio-project-carousel-2.html">Carousel 2</a></li>
-                                        <li><a href="portfolio-project-video.html">Video HTML5</a></li>
-                                        <li><a href="portfolio-project-video-youtube.html">Video Youtube</a></li>
-                                        <li><a href="portfolio-project-video-vimeo.html">Video Vimeo</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="portfolio-project-fullwidth-image.html" class="has-sub-menu last">Single project full width</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="portfolio-project-fullwidth-image.html">Image</a></li>
-                                        <li><a href="portfolio-project-fullwidth-image-2.html">Image 2</a></li>
-                                        <li><a href="portfolio-project-fullwidth-carousel.html">Carousel</a></li>
-                                        <li><a href="portfolio-project-fullwidth-carousel-2.html">Carousel 2</a></li>
-                                        <li ><a href="portfolio-project-fullwidth-video.html">Video HTML5</a></li>
-                                        <li ><a href="portfolio-project-fullwidth-video-youtube.html">Video Youtube</a></li>
-                                        <li ><a href="portfolio-project-fullwidth-video-vimeo.html">Video Vimeo</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li><a href="template-contact.html">Contact</a></li>
+                        <li><a href="template-contact.html">Contact Us</a></li>
 
 
                     </ul>
