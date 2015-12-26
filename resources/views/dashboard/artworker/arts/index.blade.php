@@ -63,7 +63,7 @@
                                     <div class="caption">
                                         <p><strong>{{ $art->title }}</strong>
                                         </p>
-                                        <p>{{ $art->description }}</p>
+                                        <p>{{ (strlen($art->description) > 30) ? substr($art->description, 0, 30).'...' : $art->description }}</p>
                                     </div>
                                 </div>
                             </div>

@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 use App\Modules\Art\ArtRepository;
 use App\Modules\Artworker\ArtworkerRepository;
 use App\Modules\Content\ContentRepository;
+use App\Modules\Team\TeamRepository;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
     protected $artworker_repository;
     protected $art_repository;
     protected $content_repository;
+    protected $team_repository;
 
-    public function __construct(ArtworkerRepository $artworker_repository, ArtRepository $art_repository, ContentRepository $content_repository)
+    public function __construct(ArtworkerRepository $artworker_repository, ArtRepository $art_repository, ContentRepository $content_repository, TeamRepository $team_repository)
     {
         $this->artworker_repository = $artworker_repository;
         $this->art_repository = $art_repository;
         $this->content_repository = $content_repository;
+        $this->team_repository = $team_repository;
     }
 
     public function index()
@@ -85,13 +89,27 @@ class WebController extends Controller
             ]
         ]);
 
+        $data['name'] = $request->input('name');
+        $data['email'] = $request->input('email');
+        $data['phone'] = $request->input('phone');
+        $data['comments'] = $request->input('comments');
+
         $gresponse = json_decode($req->getBody(), false);
 
         if ($gresponse->success == true) {
-            dd('valid');
+            Mail::send('emails.contact', $data, function ($message) use ($data) {
+                $message->from('visitor@triartspace.com');
+                $message->to('hello@triartspace.com')->subject('Visitor Message');
+            });
         }
 
-        dd('invalid');
+        return redirect()->to('/');
+    }
 
+    public function team()
+    {
+        $teams = $this->team_repository->getList();
+        $data['teams'] = $teams;
+        return view('web.team', $data);
     }
 }

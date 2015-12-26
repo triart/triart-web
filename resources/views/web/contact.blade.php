@@ -9,14 +9,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h1>Keep in touch</h1>
-                    </div>
-                    <div class="col-md-6">
-                        <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Library</a></li>
-                            <li class="active">Data</li>
-                        </ol>
+                        <h1>We'd love to hear from you</h1>
                     </div>
                 </div>
             </div>
@@ -58,7 +51,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="comments">Comments</label>
-                                <textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)" required="required"></textarea>
+                                <textarea name="comments" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)" required="required"></textarea>
                                 <div class="form-line"></div>
                             </div>
 

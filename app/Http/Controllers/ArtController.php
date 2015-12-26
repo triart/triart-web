@@ -163,7 +163,7 @@ class ArtController extends Controller
          */
         Image::make($request->file('avatar_file'))
             ->rotate($art_data->rotate)
-            ->crop($art_data->width, $art_data->height, intval($art_data->x), intval($art_data->y))
+            ->crop(intval($art_data->width), intval($art_data->height), intval($art_data->x), intval($art_data->y))
             ->resize(346,346)
             ->save($thumbnail_dest_path.$file_name);
 

@@ -228,7 +228,7 @@ h1.x-large {
 	background-position: center center;
 }
 
-
+/**
 .team-1 {
 	background-image:url(../images/team/team-corporate-1.jpg);
 }
@@ -241,6 +241,7 @@ h1.x-large {
 	background-image:url(../images/team/team-corporate-3.jpg);
 	background-position: top right;
 }
+**/
 
 
 /*** adjust some icons ***/

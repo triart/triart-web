@@ -35,6 +35,11 @@
                             </li>
                         </ul>
 
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/team') }}">Team</a>
+                            </li>
+                        </ul>
+
                     </li>
 
                     <li><a><i class="fa fa-group"></i> Manage <span class="fa fa-chevron-down"></span></a>

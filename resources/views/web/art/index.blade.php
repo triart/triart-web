@@ -17,16 +17,15 @@
                                 <h2>{{ $art->title }}</h2>
                                 <ul class="entry-meta">
                                         @foreach($categories as $i => $category)
-                                            @if ($i == ($category_count - 1))
-                                                <li class="entry-comments">
-                                                    By : <a href="{{ url('artworker/'.$art->artworker->id) }}">{{ $art->artworker->name }}</a>
-                                                </li>
-                                             @else
-                                                <li class="entry-category">
-                                                    <a href="#">{{ $category->name }}</a>
-                                                </li>
-                                            @endif
+                                            <li class="entry-category">
+                                                <a href="#">{{ $category->name }}</a>
+                                            </li>
                                         @endforeach
+
+                                            <li class="entry-comments">
+                                                By : {{ $art->artworker->name }}
+                                            </li>
+
                                 </ul>
                             </header>
                             <div class="post-pic">

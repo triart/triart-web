@@ -121,7 +121,7 @@ class ArtworkerController extends Controller
          */
         Image::make($request->file('avatar_file'))
             ->rotate($avatar_data->rotate)
-            ->crop($avatar_data->width, $avatar_data->height, intval($avatar_data->x), intval($avatar_data->y))
+            ->crop(intval($avatar_data->width), intval($avatar_data->height), intval($avatar_data->x), intval($avatar_data->y))
             ->resize(168,168)
             ->save($destination_path.$file_name);
 

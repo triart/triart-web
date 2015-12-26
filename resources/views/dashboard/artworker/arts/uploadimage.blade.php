@@ -29,8 +29,8 @@
                                 <!-- end of image cropping -->
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <div class="avatar-view center-block" title="Change the avatar">
-                                        <img src="{{ asset('images/image_none.png') }}" alt="Avatar">
+                                    <div class="avatar-view center-block" title="Change the Image Art">
+                                        <img src="{{ asset('images/image_none.png') }}" alt="Image Art">
                                     </div>
 
                                     <!-- Cropping modal -->

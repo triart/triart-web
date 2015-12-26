@@ -16,6 +16,7 @@ Route::get('artworker/{id}',['uses' => 'WebController@view']);
 Route::get('art/{id}',['uses' => 'WebController@artDetail']);
 Route::get('/contact', ['uses' => 'WebController@contact']);
 Route::post('/contact',['uses' => 'WebController@postContact']);
+Route::get('/team', ['uses' => 'WebController@team']);
 Route::get('/{username}',['uses' => 'WebController@viewByUsername'])->where('name', '[A-Za-z]+');
 
 Route::group(['prefix' => 'dashboard'], function () {
@@ -52,6 +53,13 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::post('/carousel/{carousel_id}', ['uses' => 'ContentController@updateCarousel']);
         Route::get('/carousel/{carousel_id}/enable', ['uses' => 'ContentController@enableCarousel']);
 
+
+        Route::get('/team', ['uses' => 'TeamController@index']);
+        Route::get('/team/create', ['uses' => 'TeamController@createForm']);
+        Route::post('/team', ['uses' => 'TeamController@store']);
+        Route::get('/team/{id}', ['uses' => 'TeamController@view']);
+        Route::put('/team/{id}', ['uses' => 'TeamController@update']);
+        Route::get('/team/{id}/delete', ['uses' => 'TeamController@delete']);
 
         Route::get('/content', ['uses' => 'ContentController@content']);
         Route::post('/content', ['uses' => 'ContentController@saveContent']);
