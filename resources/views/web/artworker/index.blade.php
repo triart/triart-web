@@ -5,16 +5,25 @@
         <header class="page-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="box-testimonial dark-color">
-                            <img src="{{url($artworker->profile_picture)}}" class="avatar large circle" alt="client pic">
-                            <cite>
-                                <strong>{{ $artworker->name }}</strong><br>
-                                <span>{!! nl2br(e($artworker->description)) !!}<br/>{{ $artworker->location }}</span>
-                            </cite>
+                    <div class="col-md-12" data-nekoanim="fadeIn" data-nekodelay="100">
+
+                    <article class="feature-box media-left">
+                        <div class="icon  x-large">
+                            <img src="{{ $artworker->profile_picture }}" alt="image" class="circle">
                         </div>
-                    </div>
+
+                        <div class="feature-box-content">
+                            <h1>{{ $artworker->name }}<br>
+                                <small>{{ $artworker->location }}</small>
+                            </h1>
+                            <p>{{ $artworker->description }}
+                            </p>
+                        </div>
+                    </article>
                 </div>
+
+
+            </div>
             </div>
         </header>
 
