@@ -6,7 +6,6 @@ use App\Models\WebsiteContent;
 
 class ContentRepository
 {
-
     public function findById($id)
     {
         return WebsiteContent::find($id);
@@ -79,5 +78,30 @@ class ContentRepository
         }
 
         return $model;
+    }
+
+    public function getClient($client_id)
+    {
+
+    }
+
+    public function saveClient($data)
+    {
+
+    }
+
+    public function updateClient($model, $data)
+    {
+
+    }
+
+    public function deleteClient($client_id)
+    {
+
+    }
+    
+    public function getListClient()
+    {
+
     }
 }
