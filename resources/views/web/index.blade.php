@@ -35,20 +35,21 @@
         <!-- portfolio -->
         <section class="pb-medium rollover effect-zoe clearfix portfolio-mosaic mosaic5">
             <!-- item -->
+            @foreach($featured_arts as $art)
             <article>
                 <figure>
-                    <img src="images/portfolio/vign8.jpg" alt="EDENA premium website template" class="full-width">
+                    <img src="{{ $art->thumbnail_url }}" alt="{{ $art->title }}" class="full-width">
                     <figcaption>
-                        <h5>Image</h5>
+                        <h5>{{ $art->title }}</h5>
                         <div class="rollover-content">
                             <p class="description">
-                                Lorem ipsum dolor sit amet elit.
+                                {{ $art->description }}
                             </p>
                             <p class="icon-links">
-                                <a href="images/portfolio/zoom1.jpg" class="image-link tips" title="zoom" data-placement="left">
+                                <a href="{{ $art->image_url }}" class="image-link tips" title="zoom" data-placement="left">
                                     <span class="icon-glyph-16"></span>
                                 </a>
-                                <a href="portfolio-project-image.html"  class="tips" title="view more" data-placement="left">
+                                <a href="{{ url('/art/'.$art->id) }}"  class="tips" title="view more" data-placement="left">
                                     <span class="icon-glyph-61"></span>
                                 </a>
                             </p>
@@ -56,6 +57,7 @@
                     </figcaption>
                 </figure>
             </article>
+            @endforeach
             <!-- / item -->
 
             <a name="clients"></a>

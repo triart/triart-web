@@ -31,6 +31,7 @@ class WebController extends Controller
         $data['youtube_url'] = $website_content->youtube_link;
         $data['enable_video'] = boolval($website_content->enable_video);
         $data['carousels'] = $this->content_repository->getAllCarousel();
+        $data['featured_arts'] = $this->art_repository->getFeaturedList(10);
         return view('web.index', $data);
     }
 

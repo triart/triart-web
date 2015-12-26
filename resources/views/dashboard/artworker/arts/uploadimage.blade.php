@@ -41,7 +41,7 @@
 
                                                     <div class="modal-header">
                                                         <button class="close" data-dismiss="modal" type="button">&times;</button>
-                                                        <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                                                        <h4 class="modal-title" id="avatar-modal-label">Upload Art Image</h4>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="avatar-body">

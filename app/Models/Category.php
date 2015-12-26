@@ -9,6 +9,11 @@ class Category extends Model
 
     public function arts()
     {
-        return $this->belongsToMany(App\Models\Category::class);
+        return $this->belongsToMany(\App\Models\Category::class);
+    }
+
+    public function artworkers()
+    {
+        return $this->belongsToMany(\App\Models\Artworker::class)->orderBy('name', 'ASC');
     }
 }

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Modules\Artworker\ArtworkerRepository;
+use App\Modules\Category\CategoryRepository;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
@@ -10,10 +11,12 @@ use Intervention\Image\Facades\Image;
 class ArtworkerController extends Controller
 {
     protected $artworker_repository;
+    protected $category_repository;
 
-    public function __construct(ArtworkerRepository $artworker_repository)
+    public function __construct(ArtworkerRepository $artworker_repository, CategoryRepository $category_repository)
     {
         $this->artworker_repository = $artworker_repository;
+        $this->category_repository = $category_repository;
     }
 
     public function index()
@@ -31,7 +34,9 @@ class ArtworkerController extends Controller
 
     public function createForm()
     {
-        return view('dashboard.artworker.form');
+        $data['categories'] = $this->category_repository->getList();
+        $data['selected_category'] = [];
+        return view('dashboard.artworker.form', $data);
     }
 
     public function store(Request $request)
@@ -44,6 +49,14 @@ class ArtworkerController extends Controller
         $data['profile_picture'] = $request->input('profile_picture');
 
         $artworker = $this->artworker_repository->create($data);
+
+        $category_ids = $request->input('categories');
+
+        if (!empty($category_ids)) {
+            foreach ($category_ids as $category_id) {
+                $artworker->categories()->attach($category_id);
+            }
+        }
 
         if (!$artworker) {
             \Session::flash('alert-error', 'Error while creating artworker '.$data['name']);
@@ -58,7 +71,10 @@ class ArtworkerController extends Controller
 
     public function view($id)
     {
-        $data['artworker'] = $this->artworker_repository->findById($id);
+        $artworker = $this->artworker_repository->findById($id);
+        $data['artworker'] = $artworker;
+        $data['categories'] = $this->category_repository->getList();
+        $data['selected_category'] = $artworker->categories()->lists('id')->toArray();
         return \View::make('dashboard.artworker.form', $data);
     }
 
@@ -73,6 +89,17 @@ class ArtworkerController extends Controller
         $artworker = $this->artworker_repository->findById($id);
         $artworker = $this->artworker_repository->update($artworker, $data);
 
+        //Detach all
+        $artworker->categories()->detach();
+
+        $category_ids = $request->input('categories');
+
+        if (!empty($category_ids)) {
+            foreach ($category_ids as $category_id) {
+                $artworker->categories()->attach($category_id);
+            }
+        }
+
         if (!$artworker) {
             \Session::flash('alert-error', 'Error while updating artworker '.$data['name']);
             return redirect()->to('/dashboard/artworker')->withInput();
@@ -85,6 +112,7 @@ class ArtworkerController extends Controller
     public function delete($id)
     {
         $artworker = $this->artworker_repository->findById($id);
+        $artworker->categories()->detach();
         $this->deleteAvatar($artworker);
 
         if (!$this->artworker_repository->delete($artworker)) {

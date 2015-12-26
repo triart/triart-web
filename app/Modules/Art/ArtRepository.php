@@ -6,9 +6,23 @@ use App\Modules\CrudContract;
 
 class ArtRepository implements CrudContract
 {
+    public function search($q = '', $num = 20)
+    {
+        $query = Art::join('artworker', 'artworker.id', '=', 'art.artworker_id')
+            ->where('art.title','LIKE', '%'.$q.'%')
+            ->orWhere('artworker.name','LIKE', '%'.$q.'%');
+        return !empty($num) ? $query->simplePaginate($num) : $query->get();
+    }
+
     public function getList($num = null)
     {
-        $query = Art::orderBy('name', 'asc');
+        $query = Art::orderBy('title', 'asc');
+        return !empty($num) ? $query->paginate($num) : $query->get();
+    }
+
+    public function getFeaturedList($num = null)
+    {
+        $query = Art::where('featured', '=', 1)->orderBy('title', 'asc');
         return !empty($num) ? $query->paginate($num) : $query->get();
     }
 
@@ -28,7 +42,7 @@ class ArtRepository implements CrudContract
         $art->size = (!empty($data['size'])) ? $data['size'] : '';
         $art->image_url = (!empty($data['image_url'])) ? $data['image_url'] : '';
         $art->thumbnail_url = (!empty($data['thumbnail_url'])) ? $data['thumbnail_url'] : '';
-        $art->sold = (!empty($data['sold'])) ? $data['sold'] : false;
+        $art->sold = (isset($data['sold'])) ? $data['sold'] : false;
 
         if (!$art->save()) {
             return false;
@@ -46,7 +60,8 @@ class ArtRepository implements CrudContract
         $model->size = (!empty($data['size'])) ? $data['size'] : $model->size;
         $model->image_url = (!empty($data['image_url'])) ? $data['image_url'] : $model->image_url;
         $model->thumbnail_url = (!empty($data['thumbnail_url'])) ? $data['thumbnail_url'] : $model->thumbnail_url;
-        $model->sold = (!empty($data['sold'])) ? $data['sold'] : $model->sold;
+        $model->sold = (isset($data['sold'])) ? $data['sold'] : $model->sold;
+        $model->featured = (isset($data['featured'])) ? $data['featured'] : $model->featured;
 
         if (!$model->save()) {
             return false;

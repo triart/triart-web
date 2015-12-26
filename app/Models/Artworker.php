@@ -12,5 +12,9 @@ class Artworker extends Model
         return $this->hasMany(\App\Models\Art::class);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(\App\Models\Category::class);
+    }
 
 }

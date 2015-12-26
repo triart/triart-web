@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Modules\Category\CategoryRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $category_repository = app()->make(CategoryRepository::class);
+        $categories = $category_repository->getList();
+        view()->share('nav_categories', $categories);
     }
 
     /**

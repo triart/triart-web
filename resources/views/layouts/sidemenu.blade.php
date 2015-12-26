@@ -44,9 +44,11 @@
 
                     <li><a><i class="fa fa-group"></i> Manage <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/category') }}">Category</a>
+                            </li>
                             <li><a href="{{ url('/dashboard/artworker') }}">Artworker</a>
                             </li>
-                            <li><a href="{{ url('/dashboard/category') }}">Category</a>
+                            <li><a href="{{ url('/dashboard/art') }}">Art</a>
                             </li>
                         </ul>
                     </li>

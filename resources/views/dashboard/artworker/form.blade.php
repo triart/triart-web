@@ -159,6 +159,22 @@
                                                         value="<?php echo isset($artworker)? $artworker->location : \Input::old('location') ?>">
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="categories[]" name="categories[]" class="select2_multiple form-control" multiple="multiple">
+                                                    @foreach($categories as $category)
+                                                        @if(in_array($category->id, $selected_category))
+                                                            <option value="{{ $category->id }}" selected="selected">{{ $category->name }}</option>
+                                                        @else
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
@@ -180,4 +196,18 @@
          <!-- image cropping -->
                     <script src="{{ url('js/cropping/cropper.min.js')}}"></script>
                     <script src="{{ url('js/cropping/main.js')}}"></script>
+
+                    <!-- select2 -->
+                    <script src="{{ url('js/select/select2.full.js') }}"></script>
+                    <!-- select2 -->
+                    <script>
+                        $(document).ready(function () {
+                            $(".select2_multiple").select2({
+                                maximumSelectionLength: 4,
+                                placeholder: "Select Category",
+                                allowClear: true
+                            });
+                        });
+                    </script>
+                    <!-- /select2 -->
 @endsection

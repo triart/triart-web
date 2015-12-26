@@ -6,14 +6,14 @@
                 <div class="row">
                     <div class="col-sm-6 hidden-xs">
                         <ul class="quick-menu">
-                            <li><a href="template-site-map.html" class="linkLeft">Site map</a></li>
-                            <li><a href="template-about.html">About us</a></li>
-                            <li><a href="template-team.html">Our team</a></li>
-                            <li><a href="template-contact.html">Contact</a></li>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li><a href="{{url('/artworker')}}">Artworkers</a></li>
+                            <li><a href="#clients">Clients</a></li>
+                            <li><a href="{{url('/team')}}">Meet Our Team</a></li>
+                            <li><a href="{{url('/contact')}}">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-xs-12 quick-contact">
-                        <div class="contact-phone"> <i class="icon-mobile"></i>615.987.1234 </div>
                         <ul class="social-icons">
                             <li><a href="#" class="rss" title="rss"><i class="icon-glyph-342"></i></a></li>
                             <li><a href="#" class="facebook" title="facebook"><i class="icon-glyph-320"></i></a></li>
@@ -50,18 +50,22 @@
                         </li>
 
                         <li>
-                            <a href="features-bootstrap.html" class="has-sub-menu">Artworkers</a>
+                            <a href="#" class="has-sub-menu">Artworkers</a>
                             <ul class="sub-menu">
-                                <li><a href="features-bootstrap.html">Category 1</a></li>
+                                @foreach($nav_categories as $category)
 
                                 <li>
-                                    <a href="features-header-large.html">Category 2</a>
+                                    <a href="#">{{ $category->name }}</a>
                                     <ul class="sub-menu">
-                                        <li><a href="features-header-large.html">Artworker 1</a></li>
-                                        <li><a href="features-header-large-preheader.html">Artworker 2</a></li>
+                                        @foreach($category->artworkers as $i => $artworker)
+                                            @if ($i <= 10)
+                                                <li><a href="{{ url('/'.strtolower($artworker->username)) }}">{{ $artworker->name }}</a></li>
+                                            @endif
+                                        @endforeach
+                                        <li><a href="{{ url('/category/'.$category->id) }}">See More ..</a></li>
                                     </ul>
-
                                 </li>
+                                @endforeach
 
                             </ul>
                         </li>

@@ -110,6 +110,7 @@
                                             Delete confirmation
                                         </div>
                                         <div class="modal-body">
+                                            Warning! If you delete this artworker, it will delete all arts belong to this artworker.
                                             Are you sure you want to delete this data?
                                         </div>
                                         <div class="modal-footer">

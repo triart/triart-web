@@ -105,29 +105,28 @@ class ArtController extends Controller
             }
         }
 
-
         \Session::flash('alert-success', 'Art with title : '.$data['title']. ' has been created');
 
         $return['artworker_id'] = $this->artworker_repository->findById($artworker_id)->id;
         $return['art_id'] = $art->id;
-        //return redirect()->action('ArtController@index', [$artworker_id])->with($return);
-       return view('dashboard.artworker.arts.uploadimage', $return);
+
+        return view('dashboard.artworker.arts.uploadimage', $return);
     }
 
     public function delete($id)
     {
         $art = $this->art_repository->findById($id);
+        $art->categories()->detach();
         $this->deleteArtFile($art);
 
-        $artworker_id = $art->artworker->id;
         if (!$this->art_repository->delete($art)) {
             \Session::flash('alert-error', 'Error while deleting art '.$art->title);
-            return redirect()->action('ArtController@index', [$artworker_id]);
+            return redirect()->back();
         }
 
         \Session::flash('alert-success', 'Art '.$art->title. ' has been deleted');
 
-        return redirect()->action('ArtController@index', [$artworker_id]);
+        return redirect()->back();
     }
 
     public function uploadArt(Request $request, $id)
@@ -178,34 +177,6 @@ class ArtController extends Controller
         $this->art_repository->update($art, $data);
 
         return response()->json(['result' => $thumbnail_url, 'state' => 200])->setStatusCode(200);
-    }
-
-    public function _uploadArt(Request $request, $id)
-    {
-        if (!$request->hasFile('avatar_file')) {
-            return response()->setStatusCode(500);
-        }
-
-        $art = $this->art_repository->findById($id);
-        $this->deleteArtFile($art);
-
-        $art_image_path = '/images/art/';
-        /**
-         * Move to storage
-         */
-        $destination_path = public_path().$art_image_path;
-        $file_name = $this->provideArtFilename($request, $art);
-        $request->file('avatar_file')->move($destination_path, $file_name);
-
-        /**
-         * Update profile picture location to db
-         * Provide full url location
-         */
-        $url = url().$art_image_path.$file_name;
-        $data['image_url'] = $url;
-        $this->art_repository->update($art, $data);
-
-        return response()->json(['result' => $url, 'state' => 200])->setStatusCode(200);
     }
 
     protected function provideArtFilename(Request $request, $art)

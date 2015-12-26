@@ -63,6 +63,10 @@ Route::group(['prefix' => 'dashboard'], function () {
 
         Route::get('/content', ['uses' => 'ContentController@content']);
         Route::post('/content', ['uses' => 'ContentController@saveContent']);
+
+        Route::get('/art', ['uses' => 'DashboardArtController@index']);
+        Route::get('/featured', ['uses' => 'DashboardArtController@featuredPage']);
+        Route::get('/art/{art_id}/featured', ['uses' => 'DashboardArtController@featured']);
     });
 
     // Authentication routes...

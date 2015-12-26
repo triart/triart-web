@@ -56,6 +56,7 @@ class ArtworkerRepository implements CrudContract
 
     public function delete($model)
     {
+        $model->arts()->delete();
         return $model->delete();
     }
 

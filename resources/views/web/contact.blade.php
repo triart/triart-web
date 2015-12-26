@@ -22,7 +22,7 @@
                         <h4>Email:</h4>
                         <address>
                             <p>
-                                <a href="mailto:contact@triartspace.com">contact@triartspace.com</a>
+                                <a href="mailto:hello@triartspace.com">hello@triartspace.com</a>
                             </p>
                         </address>
                     </div>

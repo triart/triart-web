@@ -5,7 +5,7 @@
     @include('layouts.header')
 </head>
 
-<body style="background:#F7F7F7;">
+<body style="background:#f9f4eb;">
 
 <div class="">
     <a class="hiddenanchor" id="toregister"></a>
@@ -43,8 +43,7 @@
                     <div class="clearfix"></div>
                     <br />
                     <div>
-                        <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Triartspace</h1>
-                        <p>©2015 All Rights Reserved. Triartspace.com</p>
+                        <img src="{{ url('images/logo/triart-logo.png')}}" alt="Triartspace"/>
                     </div>
                 </div>
 
