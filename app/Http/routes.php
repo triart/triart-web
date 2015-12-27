@@ -14,6 +14,8 @@
 Route::get('/', ['uses' => 'WebController@index']);
 Route::get('artworker/{id}',['uses' => 'WebController@view']);
 Route::get('art/{id}',['uses' => 'WebController@artDetail']);
+Route::get('category/{id}',['uses' => 'WebController@viewCategory']);
+Route::get('/about', ['uses' => 'WebController@about']);
 Route::get('/contact', ['uses' => 'WebController@contact']);
 Route::post('/contact',['uses' => 'WebController@postContact']);
 Route::get('/team', ['uses' => 'WebController@team']);
@@ -60,6 +62,15 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/team/{id}', ['uses' => 'TeamController@view']);
         Route::put('/team/{id}', ['uses' => 'TeamController@update']);
         Route::get('/team/{id}/delete', ['uses' => 'TeamController@delete']);
+
+
+        Route::get('/client', ['uses' => 'ClientController@index']);
+        Route::get('/client/create', ['uses' => 'ClientController@createForm']);
+        Route::post('/client', ['uses' => 'ClientController@store']);
+        Route::get('/client/{id}', ['uses' => 'ClientController@view']);
+        Route::put('/client/{id}', ['uses' => 'ClientController@update']);
+        Route::get('/client/{id}/delete', ['uses' => 'ClientController@delete']);
+
 
         Route::get('/content', ['uses' => 'ContentController@content']);
         Route::post('/content', ['uses' => 'ContentController@saveContent']);

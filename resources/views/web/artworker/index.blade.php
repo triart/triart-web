@@ -9,7 +9,7 @@
 
                     <article class="feature-box media-left">
                         <div class="icon  x-large">
-                            <img src="{{ $artworker->profile_picture }}" alt="image" class="circle">
+                            <img src="{{ isset($artworker->profile_picture) ? $artworker->profile_picture : url('images/profile_none.png') }}" alt="image" class="circle">
                         </div>
 
                         <div class="feature-box-content">

@@ -78,6 +78,7 @@
                             <a href="{{ url('/team') }}" class="has-sub-menu">Meet Our Team</a>
                         </li>
 
+                        <li><a href="{{ url('/about') }}">About Us</a></li>
 
                         <li><a href="{{ url('/contact') }}">Contact Us</a></li>
 

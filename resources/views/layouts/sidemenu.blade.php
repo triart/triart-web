@@ -40,6 +40,11 @@
                             </li>
                         </ul>
 
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="{{ url('/dashboard/client') }}">Client</a>
+                            </li>
+                        </ul>
+
                     </li>
 
                     <li><a><i class="fa fa-group"></i> Manage <span class="fa fa-chevron-down"></span></a>

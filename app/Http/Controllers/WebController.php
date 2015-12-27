@@ -3,11 +3,14 @@ namespace App\Http\Controllers;
 
 use App\Modules\Art\ArtRepository;
 use App\Modules\Artworker\ArtworkerRepository;
+use App\Modules\Category\CategoryRepository;
+use App\Modules\Client\ClientRepository;
 use App\Modules\Content\ContentRepository;
 use App\Modules\Team\TeamRepository;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use SocialLinks\Page;
 
 class WebController extends Controller
 {
@@ -15,13 +18,24 @@ class WebController extends Controller
     protected $art_repository;
     protected $content_repository;
     protected $team_repository;
+    protected $client_repository;
+    protected $category_repository;
 
-    public function __construct(ArtworkerRepository $artworker_repository, ArtRepository $art_repository, ContentRepository $content_repository, TeamRepository $team_repository)
+    public function __construct(
+        ArtworkerRepository $artworker_repository,
+        ArtRepository $art_repository,
+        ContentRepository $content_repository,
+        TeamRepository $team_repository,
+        ClientRepository $client_repository,
+        CategoryRepository $category_repository
+    )
     {
         $this->artworker_repository = $artworker_repository;
         $this->art_repository = $art_repository;
         $this->content_repository = $content_repository;
         $this->team_repository = $team_repository;
+        $this->client_repository = $client_repository;
+        $this->category_repository = $category_repository;
     }
 
     public function index()
@@ -32,7 +46,15 @@ class WebController extends Controller
         $data['enable_video'] = boolval($website_content->enable_video);
         $data['carousels'] = $this->content_repository->getAllCarousel();
         $data['featured_arts'] = $this->art_repository->getFeaturedList(10);
+        $data['clients'] = $this->client_repository->getList(20);
         return view('web.index', $data);
+    }
+
+    public function about()
+    {
+        $website_content = $this->content_repository->findById(1);
+        $data['website_content'] = $website_content;
+        return view('web.about', $data);
     }
 
     public function view($id)
@@ -67,9 +89,18 @@ class WebController extends Controller
             return view('web.404');
         }
 
+        $social_links = new Page([
+            'url' => 'http://triartspace.com/art/'.$art->id,
+            'title' => $art->title,
+            'text' => $art->description,
+            'image' => $art->thumbnail_url
+        ]);
+
         $data['art'] = $art;
         $data['category_count'] = count($art->categories);
         $data['categories'] = $art->categories;
+        $data['social_links'] = $social_links;
+
         return view('web.art.index', $data);
     }
 
@@ -110,7 +141,17 @@ class WebController extends Controller
     public function team()
     {
         $teams = $this->team_repository->getList();
+        $website_content = $this->content_repository->findById(1);
         $data['teams'] = $teams;
+        $data['website_content'] = $website_content;
         return view('web.team', $data);
+    }
+
+    public function viewCategory($id)
+    {
+        $category = $this->category_repository->findById($id);
+        $data['category_name'] = $category->name;
+        $data['arts'] = $category->arts;
+        return view('web.category.index', $data);
     }
 }

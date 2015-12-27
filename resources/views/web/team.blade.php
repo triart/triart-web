@@ -4,8 +4,11 @@
         <header class="page-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h1>Our team <small>We're smart and beautiful</small></h1>
+                    <div class="col-md-12 text-justify">
+                        <h1>Our team</h1>
+                        <p>
+                            {!! isset($website_content) ? nl2br(e($website_content->vision)) : '' !!}
+                        </p>
                     </div>
                 </div>
             </div>

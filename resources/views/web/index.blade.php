@@ -23,7 +23,7 @@
                     <div class="col-md-12 text-center pt-medium heading">
                         <h1><span>What is </span>Triartspace</h1>
                     </div>
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12 text-justify">
                         <p>{!! (isset($website_content)) ? nl2br(e($website_content->whatis)) : '' !!}</p>
                     </div>
                 </div>
@@ -65,6 +65,8 @@
         <!-- / portfolio -->
 
         <!-- references -->
+
+        @if (count($clients) > 0)
         <section class="pt-medium pb-medium">
             <div class="container">
                 <div class="row">
@@ -73,54 +75,19 @@
                     </div>
                 </div>
                 <div class="row mb" data-nekoanim="fadeInUp" data-nekodelay="200">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color mb-xs mb-sm">
-                            <img src="images/clients/logo1.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color mb-xs mb-sm">
-                            <img src="images/clients/logo2.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color">
-                            <img src="images/clients/logo3.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color">
-                            <img src="images/clients/logo4.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" data-nekoanim="fadeInUp" data-nekodelay="200">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color mb-xs mb-sm">
-                            <img src="images/clients/logo5.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color mb-xs mb-sm">
-                            <img src="images/clients/logo6.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color">
-                            <img src="images/clients/logo7.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="box light-color">
-                            <img src="images/clients/logo8.png" alt="EDENA premium website template" class="img-responsive"/>
-                        </div>
-                    </div>
-                </div>
 
+                    @foreach($clients as $client)
+                    <div class="col-md-3 col-xs-6">
+                        <div class="box light-color mb-xs mb-sm">
+                            <img src="{{ url($client->image) }}" alt="{{ $client->name }}" class="img-responsive"/>
+                        </div>
+                    </div>
+                    @endforeach
 
+                </div>
             </div>
-
         </section>
+        @endif
         <!-- / references -->
 
     </main>

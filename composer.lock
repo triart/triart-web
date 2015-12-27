@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "712feb74c64aec89e29d1d6344f8e7a7",
-    "content-hash": "69e7699cd4fd7cea71fb02dfbcbe0d95",
+    "hash": "c02fdc2864e84f3186ffe9b12ca741e5",
+    "content-hash": "32c5d30a28964a8e3e708a36caeb6b9a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1233,6 +1233,55 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
+        },
+        {
+            "name": "social-links/social-links",
+            "version": "v1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/social-links.git",
+                "reference": "b6824a86caf49dc772095730d631001797936da7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/social-links/zipball/b6824a86caf49dc772095730d631001797936da7",
+                "reference": "b6824a86caf49dc772095730d631001797936da7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialLinks\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to generate share buttons",
+            "homepage": "https://github.com/oscarotero/social-links",
+            "keywords": [
+                "buttons",
+                "facebook",
+                "links",
+                "opengraph",
+                "share",
+                "social",
+                "twitter",
+                "twittercards"
+            ],
+            "time": "2015-10-08 22:45:31"
         },
         {
             "name": "swiftmailer/swiftmailer",

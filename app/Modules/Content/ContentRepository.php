@@ -2,6 +2,7 @@
 namespace App\Modules\Content;
 
 use App\Models\Carousel;
+use App\Models\Client;
 use App\Models\WebsiteContent;
 
 class ContentRepository
@@ -23,7 +24,7 @@ class ContentRepository
         $website_content->whatis = !empty($data['whatis']) ? $data['whatis'] : $website_content->whatis;
         $website_content->bornreason = !empty($data['bornreason']) ? $data['bornreason'] : $website_content->bornreason;
         $website_content->vision = !empty($data['vision']) ? $data['vision'] : $website_content->vision;
-        $website_content->strength = !empty($data['strengh']) ? $data['strength'] : $website_content->strength;
+        $website_content->strength = !empty($data['strength']) ? $data['strength'] : $website_content->strength;
 
         $website_content->enable_video =  isset($data['enable_video']) ? $data['enable_video'] : $website_content->enable_video;
         $website_content->youtube_link =  !empty($data['youtube_link']) ? $data['youtube_link'] : $website_content->youtube_link;
@@ -78,30 +79,5 @@ class ContentRepository
         }
 
         return $model;
-    }
-
-    public function getClient($client_id)
-    {
-
-    }
-
-    public function saveClient($data)
-    {
-
-    }
-
-    public function updateClient($model, $data)
-    {
-
-    }
-
-    public function deleteClient($client_id)
-    {
-
-    }
-    
-    public function getListClient()
-    {
-
     }
 }

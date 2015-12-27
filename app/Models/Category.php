@@ -9,7 +9,7 @@ class Category extends Model
 
     public function arts()
     {
-        return $this->belongsToMany(\App\Models\Category::class);
+        return $this->belongsToMany(\App\Models\Art::class, 'art_category');
     }
 
     public function artworkers()
