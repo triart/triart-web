@@ -151,11 +151,18 @@ class ArtController extends Controller
         $thumbnail_dest_path = public_path().$art_thumbnail_path;
         $file_name = $this->provideArtFilename($request, $art);
 
+        $image = Image::make($request->file('avatar_file'));
+
         /**
-         * Save original resolution
+         * Resize original resolution to width 1280px
          */
-        Image::make($request->file('avatar_file'))
-            ->save($destination_path.$file_name);
+        if ($image->width() > 1280) {
+            $image->resize(1280, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destination_path.$file_name);
+        } else {
+            $image->save($destination_path.$file_name);
+        }
 
         /**
          * Create thumbnail image, rotate, crop, resize then save it to size 346 px X 346 px
