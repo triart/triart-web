@@ -147,11 +147,47 @@ class WebController extends Controller
         return view('web.team', $data);
     }
 
+    public function disclaimer()
+    {
+        return view('web.disclaimer');
+    }
+
     public function viewCategory($id)
     {
         $category = $this->category_repository->findById($id);
         $data['category_name'] = $category->name;
         $data['arts'] = $category->arts;
         return view('web.category.index', $data);
+    }
+
+    public function viewCategoryBySlug($slug)
+    {
+        $category = $this->category_repository->findBySlugUrl($slug);
+        $data['category_name'] = $category->name;
+        $data['arts'] = $category->arts;
+        return view('web.category.index', $data);
+    }
+
+    public function viewArtBySlug($username, $art_slug_url)
+    {
+        $art = $this->art_repository->findBySlugUrl($art_slug_url);
+
+        if (empty($art)) {
+            return view('web.404');
+        }
+
+        $social_links = new Page([
+            'url' => 'http://triartspace.com/@'.$username.'/'.$art_slug_url,
+            'title' => $art->title,
+            'text' => $art->description,
+            'image' => $art->thumbnail_url
+        ]);
+
+        $data['art'] = $art;
+        $data['category_count'] = count($art->categories);
+        $data['categories'] = $art->categories;
+        $data['social_links'] = $social_links;
+
+        return view('web.art.index', $data);
     }
 }

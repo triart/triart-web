@@ -3,6 +3,8 @@ namespace App\Modules\Art;
 
 use App\Models\Art;
 use App\Modules\CrudContract;
+use Carbon\Carbon;
+use Cocur\Slugify\Slugify;
 
 class ArtRepository implements CrudContract
 {
@@ -43,6 +45,7 @@ class ArtRepository implements CrudContract
         $art->image_url = (!empty($data['image_url'])) ? $data['image_url'] : '';
         $art->thumbnail_url = (!empty($data['thumbnail_url'])) ? $data['thumbnail_url'] : '';
         $art->sold = (isset($data['sold'])) ? $data['sold'] : false;
+        $art->slug_url = $this->slug($data['title']);
 
         if (!$art->save()) {
             return false;
@@ -62,6 +65,7 @@ class ArtRepository implements CrudContract
         $model->thumbnail_url = (!empty($data['thumbnail_url'])) ? $data['thumbnail_url'] : $model->thumbnail_url;
         $model->sold = (isset($data['sold'])) ? $data['sold'] : $model->sold;
         $model->featured = (isset($data['featured'])) ? $data['featured'] : $model->featured;
+        $model->slug_url = (!empty($data['title'])) ? $this->slug($data['title']) : $model->slug_url;
 
         if (!$model->save()) {
             return false;
@@ -73,6 +77,18 @@ class ArtRepository implements CrudContract
     public function delete($model)
     {
         return $model->delete();
+    }
+
+    protected function slug($title)
+    {
+        $slugify = new Slugify();
+        $timestamp = Carbon::now()->timestamp;
+        return $slugify->slugify($title.'-'.$timestamp);
+    }
+
+    public function findBySlugUrl($url)
+    {
+        return Art::where('slug_url', '=', $url)->first();
     }
 
 }

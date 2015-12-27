@@ -15,7 +15,7 @@
                                 <ul class="entry-meta">
                                         @foreach($categories as $i => $category)
                                             <li class="entry-category">
-                                                <a href="{{ url('/category/'.$category->id) }}">{{ $category->name }}</a>
+                                                <a href="{{ url('/category/'.$category->slug_url) }}">{{ $category->name }}</a>
                                             </li>
                                         @endforeach
 

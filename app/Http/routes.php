@@ -12,14 +12,20 @@
 */
 
 Route::get('/', ['uses' => 'WebController@index']);
-Route::get('artworker/{id}',['uses' => 'WebController@view']);
-Route::get('art/{id}',['uses' => 'WebController@artDetail']);
-Route::get('category/{id}',['uses' => 'WebController@viewCategory']);
 Route::get('/about', ['uses' => 'WebController@about']);
 Route::get('/contact', ['uses' => 'WebController@contact']);
 Route::post('/contact',['uses' => 'WebController@postContact']);
+Route::get('/disclaimer', ['uses' => 'WebController@disclaimer']);
 Route::get('/team', ['uses' => 'WebController@team']);
-Route::get('/{username}',['uses' => 'WebController@viewByUsername'])->where('name', '[A-Za-z]+');
+
+//Route::get('artworker/{id}',['uses' => 'WebController@view']);
+//Route::get('art/{id}',['uses' => 'WebController@artDetail']);
+//Route::get('category/{id}',['uses' => 'WebController@viewCategory']);
+//Route::get('/{username}',['uses' => 'WebController@viewByUsername'])->where('name', '[A-Za-z]+');
+
+Route::get('category/{slug}',['uses' => 'WebController@viewCategoryBySlug']);
+Route::get('/@{username}',['uses' => 'WebController@viewByUsername'])->where('name', '[A-Za-z]+');
+Route::get('/@{username}/{art_slug_url}',['uses' => 'WebController@viewArtBySlug']);
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['middleware' => 'auth'], function () {

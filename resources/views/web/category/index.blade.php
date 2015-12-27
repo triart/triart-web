@@ -23,11 +23,11 @@
                         @foreach($arts as $art)
                         <article class="brick caption graphics">
                             <figure class="light-color">
-                                <a href="{{ url('art/'.$art->id) }}">
+                                <a href="{{ url('/@'.$art->artworker->username.'/'.$art->slug_url) }}">
                                     <img src="{{ $art->thumbnail_url }}" alt="" class="full-width">
                                 </a>
                                 <figcaption>
-                                    <a href="{{ url('art/'.$art->id) }}"><h3>{{ $art->title }}</h3></a>
+                                    <a href="{{ url('/@'.$art->artworker->username.'/'.$art->slug_url) }}"><h3>{{ $art->title }}</h3></a>
                                     <p class="hidden-xs">{{ substr($art->description, 0, 100) }}</p>
                                 </figcaption>
                             </figure>

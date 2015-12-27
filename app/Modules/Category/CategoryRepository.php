@@ -3,6 +3,8 @@ namespace App\Modules\Category;
 
 use App\Models\Category;
 use App\Modules\CrudContract;
+use Carbon\Carbon;
+use Cocur\Slugify\Slugify;
 
 class CategoryRepository implements CrudContract
 {
@@ -27,6 +29,7 @@ class CategoryRepository implements CrudContract
     {
         $category = new Category();
         $category->name = $data['name'];
+        $category->slug_url = $this->slug($data['name']);
 
         if (!$category->save()) {
             return false;
@@ -38,6 +41,7 @@ class CategoryRepository implements CrudContract
     public function update($model, array $data)
     {
         $model->name = $data['name'];
+        $model->slug_url = $this->slug($data['name']);
 
         if (!$model->save()) {
             return false;
@@ -49,5 +53,16 @@ class CategoryRepository implements CrudContract
     public function delete($model)
     {
         return $model->delete();
+    }
+
+    protected function slug($name)
+    {
+        $slugify = new Slugify();
+        return $slugify->slugify($name);
+    }
+
+    public function findBySlugUrl($url)
+    {
+        return Category::where('slug_url', '=', $url)->first();
     }
 }

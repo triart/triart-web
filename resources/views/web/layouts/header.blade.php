@@ -59,10 +59,10 @@
                                     <ul class="sub-menu">
                                         @foreach($category->artworkers as $i => $artworker)
                                             @if ($i <= 10)
-                                                <li><a href="{{ url('/'.strtolower($artworker->username)) }}">{{ $artworker->name }}</a></li>
+                                                <li><a href="{{ url('/@'.strtolower($artworker->username)) }}">{{ $artworker->name }}</a></li>
                                             @endif
                                         @endforeach
-                                        <li><a href="{{ url('/category/'.$category->id) }}">See More ..</a></li>
+                                        <li><a href="{{ url('/category/'.$category->slug_url) }}">See More ..</a></li>
                                     </ul>
                                 </li>
                                 @endforeach
@@ -71,7 +71,7 @@
                         </li>
 
                         <li>
-                            <a href="#clients" class="has-sub-menu">Clients</a>
+                            <a href="{{ url('/').'#clients' }}" class="has-sub-menu">Clients</a>
                         </li>
 
                         <li class="neko-mega-menu-trigger">

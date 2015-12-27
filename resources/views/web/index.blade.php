@@ -49,7 +49,7 @@
                                 <a href="{{ $art->image_url }}" class="image-link tips" title="zoom" data-placement="left">
                                     <span class="icon-glyph-16"></span>
                                 </a>
-                                <a href="{{ url('/art/'.$art->id) }}"  class="tips" title="view more" data-placement="left">
+                                <a href="{{ url('/@'.$art->artworker->username.'/'.$art->slug_url) }}"  class="tips" title="view more" data-placement="left">
                                     <span class="icon-glyph-61"></span>
                                 </a>
                             </p>
